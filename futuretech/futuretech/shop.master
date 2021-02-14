@@ -1,0 +1,187 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="shop.master.cs" Inherits="shop" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Future Tech</title>
+    <link rel="icon" href="assets/ft.jpg" />
+    <link href="StyleSheet.css" rel="stylesheet" />
+    <link href="lib/font-awesome/css/all.css" rel="stylesheet" />
+    <script src="assets/js/jquery-1.4.1.min.js"></script>
+    <script src="assets/js/jquery-func.js"></script>
+    <script src="assets/js/jquery.jcarousel.pack.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    
+    <div id="outer">
+        <%-- First Section of header--%>
+            <%--contains language selection--%> 
+        <div class="one main">
+            <asp:DropDownList ID="LanguageList" runat="server" class="dropdown">
+                <asp:ListItem Selected="True" Value="English (EN)">En</asp:ListItem>
+                <asp:ListItem Value="Arabic (AR)">Ar</asp:ListItem>
+            </asp:DropDownList>
+            
+            <%-- Login and signup links --%>
+
+            <div class="align-right" style="display:inline-block;">
+            <asp:LoginView ID="LoginView1" runat="server">
+                    <AnonymousTemplate>
+                        Welcome!&nbsp;&nbsp;&nbsp;
+                        <a href="signup.aspx" style="border:thin;">SignUp</a> &nbsp;|&nbsp;
+                        <a href="login.aspx" style="border:thin; ">LogIn</a>
+                    </AnonymousTemplate>
+ 
+                    <LoggedInTemplate>
+                        <asp:LoginName ID="LoginName1" runat="server" FormatString="Hii {0} !!" />
+                        <asp:LoginStatus ID="LoginStatus1" runat="server" LoginText="Logout" LogoutPageUrl="~/Default.aspx" LogoutAction="Redirect" />
+                    </LoggedInTemplate>
+            </asp:LoginView>
+            </div>
+            <%-- Contact us link --%>
+            &nbsp;<a class="link align-right" style="margin-right:55px;" href="ContactUs.aspx">Contact Us</a>
+        </div>
+        <hr class="new1" />
+        
+            <%--Section two --%>
+        <div class="two main">
+        <div class="company">
+            <h1 style="margin-top:2px;margin-bottom:2px;color:blue;"><a href="Default.aspx">Future Tech</a></h1>
+        </div>
+             <%-- Seach box --%>
+        <div id="searchbox">
+            <asp:TextBox ID="TextB" runat="server"></asp:TextBox>
+            <a id="Butt"><i class="fas fa-search"></i>&nbsp;</a> 
+        </div>
+            &nbsp;<%--Shopping basket and wishlist--%>
+            <div class="align-right">
+                <div class="company"><a><i class="strong fas fa-heart "></i> Wish <strong>List</strong></a></div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                <div class="company" style="margin-top:13px;"><a href="cart.aspx"><i class="fas fa-shopping-basket"></i>Shopping <strong>Basket</strong></a></div>
+               
+            </div>
+        </div>
+        
+        <%-- Section three contains all the hyperlinks and categories of shopping --%>
+        <div class="three">
+            <div>
+                <div id="navigation" class="auto-style2">
+                <asp:Menu ID="Menu1" runat="server" Font-Bold="True" Font-Size="X-Large" Orientation="Horizontal" Height="70px" BackColor="#e9ecef" Width="100%">
+                    <Items>
+                        <asp:MenuItem Text="Appliances" Value="Appliances">
+                            <asp:MenuItem Text="Washing Machines" Value="Washing Machines"></asp:MenuItem>
+                            <asp:MenuItem Text="Refrigerators" Value="Refrigerators"></asp:MenuItem>
+                            <asp:MenuItem Text="Water Heaters" Value="Water Heaters"></asp:MenuItem>
+                            <asp:MenuItem Text="Water Dispensers" Value="Water Dispensers"></asp:MenuItem>
+                            <asp:MenuItem Text="Kitchen Mixers" Value="Kitchen Mixers"></asp:MenuItem>
+                            <asp:MenuItem Text="Air Conditioners" Value="Air Conditioners"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Computers" Value="Computers">
+                            <asp:MenuItem Text="Towers" Value="Towers"></asp:MenuItem>
+                            <asp:MenuItem Text="Monitors" Value="Monitors"></asp:MenuItem>
+                            <asp:MenuItem Text="Power Supply" Value="Power Supply"></asp:MenuItem>
+                            <asp:MenuItem Text="Peripherals" Value="Peripherals">
+                                <asp:MenuItem Text="Keyboards" Value="Keyboards" NavigateUrl="~/keyboards.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Mouse" Value="Mouse"></asp:MenuItem>
+                                <asp:MenuItem Text="Webcams" Value="Webcams"></asp:MenuItem>
+                            </asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Mobiles" Value="Mobiles">
+                            <asp:MenuItem Text="Apple" Value="Apple" NavigateUrl="~/apple.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Samsung" Value="Samsung"></asp:MenuItem>
+                            <asp:MenuItem Text="Huawei" Value="Huawei"></asp:MenuItem>
+                            <asp:MenuItem Text="Tablets" Value="Tablets"></asp:MenuItem>
+                            <asp:MenuItem Text="Mobile Accessories" Value="Mobile Accessories"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Cameras" Value="Cameras">
+                            <asp:MenuItem Text="DSLR" Value="DSLR"></asp:MenuItem>
+                            <asp:MenuItem Text="Action Camera" Value="Action Camera"></asp:MenuItem>
+                            <asp:MenuItem Text="CCTV" Value="CCTV"></asp:MenuItem>
+                            <asp:MenuItem Text="Webcams" Value="Webcams"></asp:MenuItem>
+                            <asp:MenuItem Text="Drones" Value="Drones"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Machinery" Value="Machinery">
+                            <asp:MenuItem Text="Lawn Mower" Value="Lawn Mower"></asp:MenuItem>
+                            <asp:MenuItem Text="Chainsaws" Value="Chainsaws"></asp:MenuItem>
+                            <asp:MenuItem Text="Lathers" Value="Lathers"></asp:MenuItem>
+                            <asp:MenuItem Text="Drills" Value="Drills"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Gaming" Value="Gaming">
+                            <asp:MenuItem Text="Playstation" Value="Playstation"></asp:MenuItem>
+                            <asp:MenuItem Text="Xbox" Value="Xbox"></asp:MenuItem>
+                            <asp:MenuItem Text="Wii" Value="Wii"></asp:MenuItem>
+                        </asp:MenuItem>
+                    </Items>
+                    <LevelMenuItemStyles>
+                        <asp:MenuItemStyle Font-Underline="False" />
+                        <asp:MenuItemStyle Font-Underline="False" ForeColor="#666666" />
+                        <asp:MenuItemStyle Font-Underline="False" ForeColor="#666666" />
+                    </LevelMenuItemStyles>
+                    <LevelSelectedStyles>
+                        <asp:MenuItemStyle Font-Underline="False" />
+                        <asp:MenuItemStyle Font-Underline="False" ForeColor="Gray" />
+                        <asp:MenuItemStyle Font-Underline="False" ForeColor="Gray" />
+                    </LevelSelectedStyles>
+                    <LevelSubMenuStyles>
+                        <asp:SubMenuStyle Font-Underline="False" />
+                        <asp:SubMenuStyle BackColor="#DEE2E6" Font-Underline="False" />
+                        <asp:SubMenuStyle BackColor="#DEE2E6" Font-Underline="False" />
+                    </LevelSubMenuStyles>
+                    <StaticHoverStyle BackColor="#DEE2E6" />
+                    <StaticMenuItemStyle Font-Bold="True" Font-Size="Large" ForeColor="#2F4F4F" HorizontalPadding="85px" VerticalPadding="25px" />
+                </asp:Menu>
+        </div>
+            </div>
+        </div>
+
+        <div class="four">
+            <asp:SiteMapPath ID="SiteMapPath1" runat="server" Font-Bold="False" Font-Size="Medium">
+                </asp:SiteMapPath>
+        </div>
+    </div>
+         <%-- Content holder area for other pages --%>
+    <div class="outer" style="overflow:auto;">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div> <%-- End of outer div for content and sidebar--%> 
+
+         <%-- Footer --%>
+    <div class="three">
+    <div class="footer main" style="margin-top:20px;">
+        <div id="bot_div">
+            <div id="bot_l">
+                @FutureTech 2021&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="ContactUs.aspx" style="color:black;">Contact Us</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
+            </div>
+            <div id="bot_r">
+               
+            <ul class="icons">
+				<li><i class="fab fa-facebook"></i></li>
+                <li><i class="fab fa-twitter"></i></li>
+                <li><i class="fab fa-youtube"></i></li>
+				<li><i class="solid fas fa-envelope"></i></li>
+			</ul>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="" title="Future Tech"  description="">
+    
+    <siteMapNode url="~aboutus.aspx" title="About Us"  description="About Us" />
+    <siteMapNode url="~apple.aspx" title="Apple Products"  description="Apple Products" />
+    <siteMapNode url="~cart.aspx" title="Shopping Cart"  description="Shopping Cart" />
+    <siteMapNode url="~ContactUs.aspx" title="Contact Us"  description="Contact Us" />
+    <siteMapNode url="~Default.aspx" title="Home"  description="Home" />
+    <siteMapNode url="~keyboards.aspx" title="Keyboards"  description="Keyboards" />
+    <siteMapNode url="~login.aspx" title="Login"  description="Login" />
+    <siteMapNode url="~payment.aspx" title="Payment"  description="Payment" />
+    <siteMapNode url="~signup.aspx" title="Sign Up"  description="Sign Up" />
+    
+  </siteMapNode>
+</siteMap>
